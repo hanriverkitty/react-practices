@@ -1,0 +1,41 @@
+const path = require("path");
+
+module.exports = function (env) {
+  return {
+    // console.log 와 console.error 를 없앤다
+    mode: "none",
+    entry: path.resolve(`src/${env.src}/index.js`),
+    output: {
+      path: path.resolve("public"),
+      filename: "assets/js/main.js",
+      assetModuleFilename: "assets/images/[hash][ext]",
+    },
+    module: {
+      rules: [
+        {
+          test: /\.js/i,
+          exclude: /node_modules/,
+          loader: "babel-loader",
+          options: {
+            configFile: path.resolve("config/babel.config.json"),
+          },
+        },
+        {
+          test: /\.(c|sa|sc)ss$/i,
+          use: ["style-loader", "css-loader", "sass-loader"],
+        },
+        {
+          test: /\.(png|gif|jp?eg|svg|ico|tif?f|bmp)/i,
+          type: "asset/resource",
+        },
+      ],
+    },
+    devServer: {
+      host: "0.0.0.0",
+      port: 9090,
+      liveReload: true,
+      compress: true,
+      hot: false,
+    },
+  };
+};
