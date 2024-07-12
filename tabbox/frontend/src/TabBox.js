@@ -1,6 +1,7 @@
 import React from "react";
 import Tabs from "./Tabs";
 import TabView from "./TabView";
+import { Tab_Box } from "./assets/scss/TabBox.scss";
 function TabBox() {
   const tabs = [
     { no: 1, name: "메뉴1", active: false, contents: "메뉴 1입니다" },
@@ -11,7 +12,7 @@ function TabBox() {
   ];
 
   return (
-    <div className="tab-box">
+    <div className={Tab_Box}>
       <Tabs
         tabs={tabs.map((e) => {
           const { contents, ...rest } = e;
