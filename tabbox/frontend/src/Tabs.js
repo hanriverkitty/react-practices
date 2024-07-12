@@ -5,15 +5,7 @@ function Tabs({ tabs }) {
   return (
     <ul>
       {tabs.map((e) => {
-        return (
-          <Tab
-            key={e.no}
-            no={e.no}
-            name={e.name}
-            active={e.active}
-            contents={e.contents}
-          />
-        );
+        return <Tab key={e.no} no={e.no} name={e.name} active={e.active} />;
       })}
     </ul>
   );

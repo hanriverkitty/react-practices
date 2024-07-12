@@ -1,6 +1,6 @@
 import React from "react";
 
-function Tab({ no, name, active, contents }) {
+function Tab({ name, active }) {
   return <li className={active ? "active" : ""}>{name}</li>;
 }
 
