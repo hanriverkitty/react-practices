@@ -26,7 +26,8 @@ export default function App() {
       return () => {
         clearInterval(intervalid);
       };
-    } /*[tick]*/
+    },
+    [] /*[tick]*/
   );
   return (
     <>
