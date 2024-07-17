@@ -3,7 +3,6 @@ import "./assets/scss/App.scss";
 import RegisterForm from "./RegisterForm";
 import Searchbar from "./Searchbar";
 import Emaillist from "./Emaillist";
-import Email from "./Email";
 
 function App(props) {
   return (
@@ -11,7 +10,6 @@ function App(props) {
       <RegisterForm />
       <Searchbar />
       <Emaillist />
-      <Email />
     </div>
   );
 }
