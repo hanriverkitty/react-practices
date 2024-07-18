@@ -7,8 +7,6 @@ import java.io.StringWriter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.NoHandlerFoundException;
@@ -54,12 +52,12 @@ public class GlobalExceptionHandler {
 		// for 404 html request
 		if (e instanceof NoHandlerFoundException) {
 			request.getRequestDispatcher("/error/404").forward(request, response);
-
+			return;
 		// for 500 html request
-		} else {
+		} 
 			request.setAttribute("error", errors.toString());
 			request.getRequestDispatcher("/error/500").forward(request, response);
-		}
+		
 
 	}
 }
