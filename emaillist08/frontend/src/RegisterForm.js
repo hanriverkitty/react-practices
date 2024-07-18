@@ -1,30 +1,25 @@
 import React from "react";
-import {
-  Register_Form,
-  InputFirstName,
-  InputLastName,
-  InputEmail,
-} from "./assets/scss/RegisterForm.scss";
+import * as styles from "./assets/scss/RegisterForm.scss";
 function RegisterForm(props) {
   return (
-    <form className={Register_Form}>
+    <form className={styles.Register_Form}>
       <input
         type="text"
         name="firstName"
         placeholder="성"
-        className={InputFirstName}
+        className={styles.InputFirstName}
       />
       <input
         type="text"
         name="lastName"
         placeholder="이름"
-        className={InputLastName}
+        className={styles.InputLastName}
       />
       <input
         type="text"
         name="email"
         placeholder="이메일"
-        className={InputEmail}
+        className={styles.InputEmail}
       />
       <input type="submit" value="등록" />
     </form>

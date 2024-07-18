@@ -9,16 +9,16 @@
     border-radius: 3px;
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
 
-    & h4 {
+    h4 {
       padding: 5px 0;
     }
 
-    & span {
+    span {
       display: block;
       padding: 0 0 5px 0;
     }
 
-    & a {
+    a {
       position: absolute;
       width: 10px;
       border: 1px solid #e5e5e5;
@@ -30,17 +30,20 @@
       font-weight: bold;
       text-align: center;
       line-height: 8px;
-      padding-top: 2px;
-    }
+      padding: 3px 2px 4px 2px;
 
-    & a:before {
-      content: "X";
-    }
-    & a:hover,
-    a:visited,
-    a:active {
-      text-decoration: none;
-      color: #fff;
+      &:before {
+        content: "X";
+      }
+
+      &:visited,
+      &:active {
+        text-decoration: none;
+        color: #fff;
+      }
+      &:hover {
+        background-color: #cfcfcf;
+      }
     }
   }
 }

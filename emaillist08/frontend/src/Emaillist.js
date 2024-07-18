@@ -1,12 +1,18 @@
 import React from "react";
 import { _Emaillist } from "./assets/scss/Emaillist.scss";
 import Email from "./Email";
-import emails from "./assets/json/data.js";
-function Emaillist(props) {
+function Emaillist({ emails }) {
   return (
-    <ul class={_Emaillist}>
-      {emails.map((e) => {
-        return <Email name={e.name} email={e.email} />;
+    <ul className={_Emaillist}>
+      {emails?.map((e) => {
+        return (
+          <Email
+            key={e.no}
+            firstName={e.firstName}
+            lastName={e.lastName}
+            email={e.email}
+          />
+        );
       })}
     </ul>
   );
