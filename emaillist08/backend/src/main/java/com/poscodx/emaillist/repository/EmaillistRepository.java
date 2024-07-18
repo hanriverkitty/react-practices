@@ -17,4 +17,13 @@ public class EmaillistRepository {
 		return sqlSession.selectList("emaillist.findAll", keyword);
 	
 	}
+
+	public int insert(EmaillistVo vo) {
+		return sqlSession.insert("emaillist.insert",vo);
+	}
+
+	public int delete(Long no) {
+		return sqlSession.delete("emaillist.delete",no);
+		
+	}
 }

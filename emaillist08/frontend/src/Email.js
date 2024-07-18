@@ -1,6 +1,6 @@
 import React from "react";
 import { _Email } from "./assets/scss/Email.scss";
-function Email({ key, firstName, lastName, email }) {
+function Email({ no, firstName, lastName, email, deleteEmail }) {
   return (
     <li className={_Email}>
       <h4>
@@ -8,7 +8,13 @@ function Email({ key, firstName, lastName, email }) {
       </h4>
       <br />
       <span>{email}</span>
-      <a href=""></a>
+      <a
+        href=""
+        onClick={(e) => {
+          e.preventDefault();
+          deleteEmail(no);
+        }}
+      ></a>
     </li>
   );
 }
