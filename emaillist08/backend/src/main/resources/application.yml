@@ -1,7 +1,7 @@
 # spring configuration
 spring:
    application:
-      name: tabbox
+      name: emaillist
    profiles:
       active: development
 
@@ -54,7 +54,7 @@ spring:
          enabled: true
 
    thymeleaf:
-      cache: false     
+      cache: false
  
 server:
    port: 8080
@@ -79,7 +79,7 @@ spring:
       cache: true         
 
 server:
-   port: 8082
+   port: 8083
 
 logging:
    pattern:
@@ -92,7 +92,8 @@ logging:
    file:
       name: logs/${spring.application.name}.log
    level:
+      root: WARN
       com:
          poscodx:
-            tabbox:
+            emaillist:
                exception: ERROR
