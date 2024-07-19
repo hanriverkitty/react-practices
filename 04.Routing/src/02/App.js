@@ -9,10 +9,6 @@ export default function App() {
     page: window.location.hash.substring(window.location.href.lastIndexOf("/")),
   });
 
-  const hadnlerPopState = (e) => {
-    setRoute(e.state ? e.state : { page: "/" });
-  };
-
   const handleLinkClick = (e) => {
     e.preventDefault();
     const url = e.target.href.substring(e.target.href.lastIndexOf("/"));
@@ -22,6 +18,10 @@ export default function App() {
   };
 
   useEffect(() => {
+    const hadnlerPopState = (e) => {
+      setRoute(e.state ? e.state : { page: "/" });
+    };
+
     window.addEventListener("popstate", hadnlerPopState);
     return () => {
       window.removeEventListener("popstate", hadnlerPopState);
