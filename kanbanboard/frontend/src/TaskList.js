@@ -6,7 +6,7 @@ function TaskList({ tasks }) {
     <div className={styles.Task_List}>
       <ul>
         {tasks.map((e) => {
-          return <Task task={e} />;
+          return <Task task={e} key={e.no} taskNo={e.no} />;
         })}
       </ul>
       <input
