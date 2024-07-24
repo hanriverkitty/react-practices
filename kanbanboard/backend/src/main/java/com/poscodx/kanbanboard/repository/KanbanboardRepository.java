@@ -31,4 +31,8 @@ public class KanbanboardRepository {
 		return sqlSession.delete("kanbanboard.delete",no);
 		
 	}
+
+	public int update(TaskVo vo) {
+		return sqlSession.update("kanbanboard.update",vo);		
+	}
 }

@@ -1,10 +1,41 @@
-import React from "react";
-import Card from "./Card";
+import React, { useState, useEffect } from "react";
 import { Card_List } from "./assets/css/styles.css";
-function CardList({ Cards }) {
+import Card from "./Card";
+function CardList() {
+  const [Cards, setCards] = useState([]);
+  const fetchCards = async () => {
+    try {
+      // (url, option)
+      const response = await fetch("api/card", {
+        method: "get",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: null,
+      });
+      if (!response.ok) {
+        throw new Error(`${response.status} ${response.statusText}`);
+      }
+      const json = await response.json();
+
+      if (json.result !== "success") {
+        throw new Error(json.message);
+      }
+      setCards(json.data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   const toDos = Cards.filter((status) => status.status === "ToDo");
   const doing = Cards.filter((status) => status.status === "Doing");
   const done = Cards.filter((status) => status.status === "Done");
+
+  useEffect(() => {
+    fetchCards();
+  }, []);
+
   return (
     <div>
       <div className={Card_List}>

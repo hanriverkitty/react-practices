@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -51,6 +52,15 @@ public class ApiController {
 	public ResponseEntity<JsonResult> create(@RequestBody TaskVo vo){
 		log.info("Request[POST /api]: "+ vo);
 		kanbanboardRepository.insert(vo);
+		return ResponseEntity
+					.status(HttpStatus.OK)
+					.body(JsonResult.success(vo));
+	}
+	
+	@PutMapping("/api/update")
+	public ResponseEntity<JsonResult> update(@RequestBody TaskVo vo){
+		log.info("Request[POST /api]: "+ vo);
+		kanbanboardRepository.update(vo);
 		return ResponseEntity
 					.status(HttpStatus.OK)
 					.body(JsonResult.success(vo));
